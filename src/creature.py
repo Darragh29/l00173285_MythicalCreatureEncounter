@@ -8,7 +8,7 @@ class Creature:
         self.rewards = rewards
 
     def __str__(self):
-        return f"Creature Name: {self.name} \nHealth Points: {self.health_points} \nBiome: {self.attack} \nRewards: {self.rewards}"
+        return f"{self.name} \nHealth: {self.health_points} \nAttack Damage: {self.attack} \nRewards to be dropped: {self.rewards}"
 
     def __repr__(self):
-        return f"Creature Name: {self.name} \nHealth Points: {self.health_points} \nBiome: {self.attack} \nRewards: {self.rewards}"
+        return f"Creature Name: {self.name} \nHealth Points: {self.health_points} \nAttack: {self.attack} \nRewards: {self.rewards}"
