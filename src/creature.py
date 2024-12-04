@@ -12,6 +12,18 @@ class Creature:
 
     def __repr__(self):
         return f"Creature Name: {self.name} \nHealth Points: {self.healthPoints} \nAttack: {self.attack} \nRewards: {self.rewards}"
+
+    def getName(self):
+        return self.name
+    
+    def getHealthPoints(self):
+        return self.healthPoints
+    
+    def getAttack(self):
+        return self.attack
+    
+    def getRewards(self):
+        return self.rewards
     
     def damage(self, damage):
         if damage <= 0:
@@ -21,11 +33,13 @@ class Creature:
         if self.healthPoints <= 0:
             print(f"{self.name} has died!")
             print(f"{self.name} has dropped {self.rewards}")
+            self.healthPoints = 0
             return
         print(f"{self.name} took {damage} damage!")
     
     def heal(self, amount):
         if amount <= 0:
             raise ValueError("Heal amount must be greater than 0")
-        self.health_points += amount
+        self.healthPoints += amount
         print(f"{self.name} healed for {amount} health!")
+
