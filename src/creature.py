@@ -1,8 +1,7 @@
-# Mythical Creature class
-# Represents a creature in a creature encounter with a name, health points, attack damage, and rewards to be dropped
 class Creature:
     """
-    Represents a creature in a mythical creature encounter with a name, health points, attack damage, and rewards to be dropped.
+    Represents a creature in a mythical creature encounter with a name, 
+    health points, attack damage, and rewards to be dropped.
     
     Attributes:
         name (str): The name of the creature
@@ -33,7 +32,8 @@ class Creature:
         Returns:
             str: String representation of the creature
         """
-        return f"{self.name} \nHealth: {self.health_points} \nAttack Damage: {self.attack} \nRewards to be dropped: {self.rewards}"
+        return f"{self.name} \nHealth: {self.health_points} \nAttack Damage: {self.attack} 
+        \nRewards to be dropped: {self.rewards}"
 
     def __repr__(self):
         """
@@ -42,17 +42,17 @@ class Creature:
         Returns:
             str: Detailed string representation of the creature
         """
-        return f"Creature Name: {self.name} \nHealth Points: {self.health_points} \nAttack: {self.attack} \nRewards: {self.rewards}"
+        return f"Creature Name: {self.name} \nHealth Points: {self.health_points} 
+        \nAttack: {self.attack} \nRewards: {self.rewards}"
 
     def get_name(self):
         """
         Returns the name of the creature
-
         Returns:
             str: The name of the creature
         """
         return self.name
-    
+
     def get_health_points(self):
         """
         Returns the health points of the creature
@@ -65,7 +65,6 @@ class Creature:
     def get_attack(self):
         """
         Returns the attack damage of the creature
-
         Returns:
             int: The attack damage of the creature
         """
