@@ -1,55 +1,59 @@
 import pytest
 from creature import Creature
 
-@pytest.fixture
-def sampleCreature():
-    """Fixture for creating a sample Creature object"""
-    return Creature("Dragon", 100, 20, "Golden Treasure")
-
-def testInitialValues(sampleCreature):
+def testInitialValues(sample_Creature):
     """Test initialization of creature attributes"""
-    assert sampleCreature.getName() == "Dragon"
-    assert sampleCreature.getHealthPoints() == 100
-    assert sampleCreature.getAttack() == 20
-    assert sampleCreature.getRewards() == "Golden Treasure"
+    creature = sample_Creature
+    assert creature.getName() == "Dragon"
+    assert creature.getHealthPoints() == 100
+    assert creature.getAttack() == 20
+    assert creature.getRewards() == "Golden Treasure"
 
-def testDamage(sampleCreature):
+def testDamage(sample_Creature):
     """Test damage method reduces health correctly"""
-    sampleCreature.damage(10)
-    assert sampleCreature.getHealthPoints() == 90
+    creature = sample_Creature
+    creature.damage(10)
+    assert creature.getHealthPoints() == 90
 
-def testDamageInvalid(sampleCreature):
+def testDamageInvalid(sample_Creature):
     """Test damage method raises ValueError for invalid input"""
+    creature = sample_Creature
     with pytest.raises(ValueError):
-        sampleCreature.damage(0)
+        creature.damage(0)
 
-def testCreatureDeath(sampleCreature):
+def testCreatureDeath(sample_Creature):
     """Test creature death behavior when health goes to zero"""
-    sampleCreature.damage(100)
-    assert sampleCreature.getHealthPoints() == 0
+    creature = sample_Creature
+    creature.damage(100)
+    assert creature.getHealthPoints() == 0
 
-def testHeal(sampleCreature):
+def testHeal(sample_Creature):
     """Test heal method increases health correctly"""
-    sampleCreature.heal(10)
-    assert sampleCreature.getHealthPoints() == 110
+    creature = sample_Creature
+    creature.heal(10)
+    assert creature.getHealthPoints() == 110
 
-def testHealInvalid(sampleCreature):
+def testHealInvalid(sample_Creature):
     """Test heal method raises ValueError for invalid input"""
+    creature = sample_Creature
     with pytest.raises(ValueError):
-        sampleCreature.heal(-10)
+        creature.heal(-10)
 
-def testStrRepresentation(sampleCreature):
+def testStrRepresentation(sample_Creature):
     """Test the __str__ method for proper formatting"""
-    assert str(sampleCreature) == "Dragon \nHealth: 100 \nAttack Damage: 20 \nRewards to be dropped: Golden Treasure"
+    creature = sample_Creature
+    assert str(creature) == "Dragon \nHealth: 100 \nAttack Damage: 20 \nRewards to be dropped: Golden Treasure"
 
-def testReprRepresentation(sampleCreature):
+def testReprRepresentation(sample_Creature):
     """Test the __repr__ method for debugging representation."""
-    assert repr(sampleCreature) == "Creature Name: Dragon \nHealth Points: 100 \nAttack: 20 \nRewards: Golden Treasure"
+    creature = sample_Creature
+    assert repr(creature) == "Creature Name: Dragon \nHealth Points: 100 \nAttack: 20 \nRewards: Golden Treasure"
 
-def testHealAfterDeath(sampleCreature):
+def testHealAfterDeath(sample_Creature):
     """Ensure healing doesn't revive a dead creature"""
-    sampleCreature.damage(100)
+    creature = sample_Creature
+    creature.damage(100)
     
     with pytest.raises(ValueError, match="Cannot heal a dead mythical creature"):
-        sampleCreature.heal(10)
+        creature.heal(10)
 
