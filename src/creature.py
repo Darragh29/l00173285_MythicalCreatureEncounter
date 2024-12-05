@@ -22,7 +22,7 @@ class Creature:
             rewards (str): The rewards the creature will drop
         """
         self.name = name
-        self.healthPoints = healthPoints
+        self.health_points = health_points
         self.attack = attack
         self.rewards = rewards
 
@@ -33,7 +33,7 @@ class Creature:
         Returns:
             str: String representation of the creature
         """
-        return f"{self.name} \nHealth: {self.healthPoints} \nAttack Damage: {self.attack} \nRewards to be dropped: {self.rewards}"
+        return f"{self.name} \nHealth: {self.health_points} \nAttack Damage: {self.attack} \nRewards to be dropped: {self.rewards}"
 
     def __repr__(self):
         """
@@ -42,9 +42,9 @@ class Creature:
         Returns:
             str: Detailed string representation of the creature
         """
-        return f"Creature Name: {self.name} \nHealth Points: {self.healthPoints} \nAttack: {self.attack} \nRewards: {self.rewards}"
+        return f"Creature Name: {self.name} \nHealth Points: {self.health_points} \nAttack: {self.attack} \nRewards: {self.rewards}"
 
-    def getName(self):
+    def get_name(self):
         """
         Returns the name of the creature
 
@@ -53,16 +53,16 @@ class Creature:
         """
         return self.name
     
-    def getHealthPoints(self):
+    def get_health_points(self):
         """
         Returns the health points of the creature
 
         Returns:
             int: The health points of the creature
         """
-        return self.healthPoints
-    
-    def getAttack(self):
+        return self.health_points
+
+    def get_attack(self):
         """
         Returns the attack damage of the creature
 
@@ -70,8 +70,8 @@ class Creature:
             int: The attack damage of the creature
         """
         return self.attack
-    
-    def getRewards(self):
+
+    def get_rewards(self):
         """
         Returns the rewards to be dropped by the creature
 
@@ -95,12 +95,12 @@ class Creature:
         """
         if damage <= 0:
             raise ValueError("Damage must be greater than 0")
-        self.healthPoints -= damage
+        self.health_points -= damage
 
-        if self.healthPoints <= 0:
+        if self.health_points <= 0:
             print(f"{self.name} has died!")
             print(f"{self.name} has dropped {self.rewards}")
-            self.healthPoints = 0
+            self.health_points = 0
             return
         print(f"{self.name} took {damage} damage!")
     
@@ -117,10 +117,9 @@ class Creature:
         Returns:
             int: The updated health points of the creature
         """
-        if self.healthPoints <= 0:
+        if self.health_points <= 0:
             raise ValueError("Cannot heal a dead mythical creature")
         if amount <= 0:
             raise ValueError("Heal amount must be greater than 0")
-        self.healthPoints += amount
+        self.health_points += amount
         print(f"{self.name} healed for {amount} health!")
-
