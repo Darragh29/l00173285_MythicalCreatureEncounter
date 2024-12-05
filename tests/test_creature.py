@@ -41,13 +41,13 @@ def test_heal_invalid(sample_creature):
 def test_str_representation(sample_creature):
     """Test the __str__ method for proper formatting"""
     creature = sample_creature
-    assert str(creature) ==\ 
+    assert str(creature) ==\
     "Dragon \nHealth: 100 \nAttack Damage: 20 \nRewards to be dropped: Golden Treasure"
 
 def test_repr_representation(sample_creature):
     """Test the __repr__ method for debugging representation."""
     creature = sample_creature
-    assert repr(creature) ==\ 
+    assert repr(creature) ==\
     "Creature Name: Dragon \nHealth Points: 100 \nAttack: 20 \nRewards: Golden Treasure"
 
 def test_heal_after_death(sample_creature):
