@@ -49,6 +49,7 @@ def testReprRepresentation(sampleCreature):
 def testHealAfterDeath(sampleCreature):
     """Ensure healing doesn't revive a dead creature"""
     sampleCreature.damage(100)
-    sampleCreature.heal(10)
-    assert sampleCreature.getHealthPoints() == 0
+    
+    with pytest.raises(ValueError, match="Cannot heal a dead mythical creature"):
+        sampleCreature.heal(10)
 
