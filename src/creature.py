@@ -117,6 +117,8 @@ class Creature:
         Returns:
             int: The updated health points of the creature
         """
+        if self.healthPoints <= 0:
+            raise ValueError("Cannot heal a dead mythical creature")
         if amount <= 0:
             raise ValueError("Heal amount must be greater than 0")
         self.healthPoints += amount
