@@ -32,8 +32,8 @@ class Creature:
         Returns:
             str: String representation of the creature
         """
-        return f"{self.name} \nHealth: {self.health_points} \nAttack Damage: {self.attack} 
-        \nRewards to be dropped: {self.rewards}"
+        return f"{self.name} \nHealth: {self.health_points} \nAttack Damage: {self.attack}"+\ 
+        "\nRewards to be dropped: {self.rewards}"
 
     def __repr__(self):
         """
@@ -42,8 +42,8 @@ class Creature:
         Returns:
             str: Detailed string representation of the creature
         """
-        return f"Creature Name: {self.name} \nHealth Points: {self.health_points} 
-        \nAttack: {self.attack} \nRewards: {self.rewards}"
+        return f"Creature Name: {self.name} \nHealth Points: {self.health_points}"+\ 
+        "\nAttack: {self.attack} \nRewards: {self.rewards}"
 
     def get_name(self):
         """
